@@ -1,3 +1,5 @@
 class TopsController < ApplicationController
-  def index; end
+  def index
+    @layouts = Layout.all
+  end
 end
