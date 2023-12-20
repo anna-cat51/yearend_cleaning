@@ -10,7 +10,10 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      flash.now.notice = "部屋を追加しました。"
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to rooms_path, notice: "部屋を追加しました。" }
+      end
     else
       render :new
     end

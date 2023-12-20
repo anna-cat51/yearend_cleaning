@@ -1,8 +1,0 @@
-<%# `#rooms`の先頭に登録されたroomを追加する %>
-<%= turbo_stream.prepend "rooms", @room %>
-
-<%# 登録の入力フォームの中身を空にする %>
-<%= turbo_stream.update Room.new, "" %>
-
-<%# Flashを表示 %>
-<%= turbo_stream_flash %>
