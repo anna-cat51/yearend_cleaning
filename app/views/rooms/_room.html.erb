@@ -7,9 +7,11 @@
     </button>
     <div id="hs-basic-bordered-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-bordered-heading-two">
       <div class="pb-4 px-5">
-        <p class="text-gray-800 dark:text-gray-200">
-          <em>This is the second item's accordion body.</em> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions.
-        </p>
+        <ul class="max-w-sm flex flex-col">
+          <% room.checklists.each do |checklist| %>
+            <%= render 'checklists/checklist', checklist: checklist %>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>

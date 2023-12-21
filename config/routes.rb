@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "tops#index"
   get "/rooms", to: "rooms#index"
   resources :rooms
+  resources :checklists
 end
