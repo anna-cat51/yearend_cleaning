@@ -14,12 +14,12 @@
     <div id="hs-basic-bordered-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-bordered-heading-two">
       <div class="pb-4 px-5">
         <%= turbo_frame_tag dom_id(room, :new_checklist) %>
-
-
         <ul class="max-w-sm flex flex-col">
-        <div id="checklists">
+        <div id="checklists_room_<%= room.id %>">
           <% room.checklists.each do |checklist| %>
-            <%= render 'checklists/checklist', room: room, checklist: checklist %>
+            <%= turbo_frame_tag dom_id(checklist, "room_#{room.id}") do %>
+              <%= render 'checklists/checklist', room: room, checklist: checklist, id: dom_id(checklist) %>
+            <% end %>
           <% end %>
         </div>
         </ul>

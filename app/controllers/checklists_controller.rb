@@ -21,6 +21,18 @@ class ChecklistsController < ApplicationController
     end
   end
 
+  def edit;end
+
+  def update
+    def update
+      if @checklist.update(checklist_params)
+        flash.now.notice = "チェックリスとを更新しました。"
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+  end
+
   private
   def checklist_params
     params.require(:checklist).permit(:name)
