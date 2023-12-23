@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "tops#index"
   get "/rooms", to: "rooms#index"
-  resources :rooms
-  resources :checklists
+  resources :rooms do
+    resources :checklists
+  end
 end

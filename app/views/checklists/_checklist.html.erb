@@ -1,4 +1,4 @@
-<%= turbo_frame_tag checklist do %>
+<%= turbo_frame_tag dom_id(checklist) do %>
   <li class="w-full inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white">
     <div class="relative flex items-start w-full">
       <div class="flex items-center h-5">
@@ -11,12 +11,12 @@
       <!-- 編集・削除ボタン -->
       <div class="flex items-center gap-x-2">
       <!-- 編集ボタン -->
-      <%= link_to edit_checklist_path(checklist), class: "flex flex-shrink-0 justify-center items-center gap-2 h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" do %>
+      <%= link_to edit_room_checklist_path(room, checklist), class: "flex flex-shrink-0 justify-center items-center gap-2 h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
       <% end %>
 
       <!-- 削除ボタン -->
-      <%= link_to checklist, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "flex flex-shrink-0 justify-center items-center gap-2 h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700" do %>
+      <%= link_to room_checklist_path(room, checklist), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "flex flex-shrink-0 justify-center items-center gap-2 h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700" do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
       <% end %>
     </div>

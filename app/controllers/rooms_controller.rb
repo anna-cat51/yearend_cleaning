@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
+    @rooms = Room.includes(:checklists).all
   end
 
   def new
