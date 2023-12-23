@@ -16,10 +16,10 @@
         <ul class="max-w-sm flex flex-col">
           <%= turbo_frame_tag dom_id(room, :checklist) %>
           <div id="checklists_room_<%= room.id %>">
-          <% room.checklists.each do |checklist| %>
-              <%= render 'checklists/checklist', room: room, checklist: checklist, id: dom_id(checklist) %>
-          <% end %>
-        </div>
+            <% room.checklists.each do |checklist| %>
+                <%= render 'checklists/checklist', room: room, checklist: checklist %>
+            <% end %>
+          </div>
         </ul>
       </div>
     </div>

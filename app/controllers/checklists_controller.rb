@@ -19,7 +19,7 @@ class ChecklistsController < ApplicationController
     if @checklist.save
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to checklists_path, notice: "部屋を追加しました。" }
+        format.html { redirect_to @checklist, notice: "部屋を追加しました。" }
       end
     else
       render :new

@@ -1,2 +1,2 @@
-<%= turbo_stream.replace "checklists_room_#{@checklist.room_id}", partial: 'checklists/checklist', locals: { room: @room, checklist: @checklist }  %>
+<%= turbo_stream.replace "room_#{@room.id}_checklist_#{@checklist.id}", partial: 'checklists/checklist', locals: { room: @room, checklist: @checklist }  %>
 <%# <%= turbo_stream_flash %>
