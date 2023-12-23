@@ -8,6 +8,11 @@ class ChecklistsController < ApplicationController
     @checklist = Checklist.new
   end
 
+  def show
+    @room = Room.find(params[:room_id])
+    @checklist = @room.checklists.find(params[:id])
+  end
+
   def create
     @room = Room.find(params[:room_id])
     @checklist = @room.checklists.build(checklist_params)
@@ -21,15 +26,18 @@ class ChecklistsController < ApplicationController
     end
   end
 
-  def edit;end
+  def edit
+    @room = Room.find(params[:room_id])
+    @checklist = @room.checklists.find(params[:id])
+  end
 
   def update
-    def update
-      if @checklist.update(checklist_params)
-        flash.now.notice = "チェックリスとを更新しました。"
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    @room = Room.find(params[:room_id])
+    @checklist = @room.checklists.find(params[:id])
+    if @checklist.update(checklist_params)
+      flash.now.notice = "チェックリスとを更新しました。"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
