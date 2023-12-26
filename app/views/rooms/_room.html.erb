@@ -7,6 +7,10 @@
         <%= room.name %>
       </div>
     <div class="flex items-center gap-x-2">
+      <%= link_to new_room_checklist_path(room),  data: { turbo_frame: "room_#{room.id}_checklist_" }, class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"  do %>
+        項目追加
+      <% end %>
+
       <!-- 編集ボタン -->
       <%= link_to edit_room_path(room), class: "flex flex-shrink-0 justify-center items-center gap-2 h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
@@ -21,9 +25,6 @@
 
     <div id="hs-basic-bordered-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-bordered-heading-two">
       <div class="pb-4 px-5">
-        <%= link_to new_room_checklist_path(room),  data: { turbo_frame: "room_#{room.id}_checklist_" }, class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"  do %>
-          項目追加
-        <% end %>
         <ul class="max-w-sm flex flex-col">
           <%= turbo_frame_tag "room_#{room.id}_checklist_" %>
           <div id="checklists_room_<%= room.id %>">
