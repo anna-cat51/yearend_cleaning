@@ -6,7 +6,7 @@
         <svg class="hs-accordion-active:block hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
         <%= room.name %>
       </div>
-      <%= link_to new_room_checklist_path(room), data: { turbo_frame: dom_id(room, :checklist) }, class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"  do %>
+      <%= link_to new_room_checklist_path(room),  data: { turbo_frame: "room_#{room.id}_checklist_" }, class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"  do %>
         項目追加
       <% end %>
     </button>
@@ -14,7 +14,7 @@
     <div id="hs-basic-bordered-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-bordered-heading-two">
       <div class="pb-4 px-5">
         <ul class="max-w-sm flex flex-col">
-          <%= turbo_frame_tag dom_id(room, :checklist) %>
+          <%= turbo_frame_tag "room_#{room.id}_checklist_" %>
           <div id="checklists_room_<%= room.id %>">
             <% room.checklists.each do |checklist| %>
                 <%= render 'checklists/checklist', room: room, checklist: checklist %>

@@ -1,3 +1,3 @@
 <%= turbo_stream.prepend "checklists_room_#{@checklist.room_id}", partial: 'checklists/checklist', locals: { room: @room, checklist: @checklist }  %>
-<%= turbo_stream.update Checklist.new, "" %>
-<%# <%= turbo_stream_flash %>
+<%= turbo_stream.update "room_#{@room.id}_checklist_", "" %>
+<%= turbo_stream_flash %>
