@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root "tops#index"
   get "/rooms", to: "rooms#index"
   resources :rooms do
-    resources :checklists
+    resources :checklists do
+      member do
+        patch :toggle
+      end
+    end
   end
 end

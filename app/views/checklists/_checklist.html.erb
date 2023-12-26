@@ -1,16 +1,11 @@
 <%= turbo_frame_tag "room_#{room.id}_checklist_#{checklist.id}" do %>
   <li class="w-full inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white">
     <div class="relative flex items-start w-full">
-      <div class="flex items-center h-5">
-        <input id="hs-list-group-item-checkbox-1" name="hs-list-group-item-checkbox-1" type="checkbox" class="border-gray-200 rounded disabled:opacity-50 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" checked>
-      </div>
-      <label for="hs-list-group-item-checkbox-1" class="ms-3.5 block w-full text-sm text-gray-600 dark:text-gray-500">
-        <%= checklist.name %>
-      </label>
-      </div>
+      <%= render 'checklists/checked', checklist: checklist %>
+    </div>
       <!-- 編集・削除ボタン -->
-      <div class="flex items-center gap-x-2">
-      <!-- 編集ボタン -->
+    <div class="flex items-center gap-x-2">
+    <!-- 編集ボタン -->
       <%= link_to edit_room_checklist_path(room, checklist), data: { turbo_frame: "room_#{room.id}_checklist_#{checklist.id}" }, class: "flex flex-shrink-0 justify-center items-center gap-2 h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700" do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
       <% end %>

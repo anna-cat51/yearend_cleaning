@@ -38,6 +38,18 @@ class ChecklistsController < ApplicationController
     end
   end
 
+  def toggle
+    @room = Room.find(params[:room_id])
+    @checklist = Checklist.find(params[:id])
+    @checklist.update(checked: !@checklist.checked)  # ここで@checklistが正しいChecklistモデルのインスタンスになる
+
+    render turbo_stream: turbo_stream.replace(
+      @checklist,
+      partial: 'checked',
+      locals: { checklist: @checklist }
+    )
+  end
+
   def destroy
     @room = Room.find(params[:room_id])
     @checklist = Checklist.find(params[:id])
@@ -47,6 +59,6 @@ class ChecklistsController < ApplicationController
 
   private
   def checklist_params
-    params.require(:checklist).permit(:name)
+    params.require(:checklist).permit(:name, :checked)
   end
 end
