@@ -17,10 +17,7 @@ class ChecklistsController < ApplicationController
     @room = Room.find(params[:room_id])
     @checklist = @room.checklists.build(checklist_params)
     if @checklist.save
-      respond_to do |format|
-        format.turbo_stream
-        format.html { redirect_to @checklist, notice: "部屋を追加しました。" }
-      end
+      flash.now.notice = "チェックリストを追加しました。"
     else
       render :new
     end
@@ -39,6 +36,13 @@ class ChecklistsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @room = Room.find(params[:room_id])
+    @checklist = Checklist.find(params[:id])
+    @checklist.destroy
+    flash.now.notice = "チェックリストを削除しました。"
   end
 
   private

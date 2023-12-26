@@ -16,7 +16,7 @@
       <% end %>
 
       <!-- 削除ボタン -->
-      <%= link_to room_checklist_path(room, checklist), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "flex flex-shrink-0 justify-center items-center gap-2 h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700" do %>
+      <%= link_to room_checklist_path(room, checklist), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "flex flex-shrink-0 justify-center items-center gap-2 h-[2.875rem] w-[2.875rem] text-sm font-semibold rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700" do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
       <% end %>
     </div>
