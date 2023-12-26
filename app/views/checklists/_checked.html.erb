@@ -1,12 +1,8 @@
 <%= turbo_frame_tag checklist do %>
   <%= form_with model: checklist, url: [:toggle, checklist.room, checklist] do |f| %>
-    <div class="max-w-xs flex p-3 w-full  rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-      <div class="flex items-center h-5">
-        <%= f.check_box :checked, class: "border-gray-200 rounded disabled:opacity-50 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800", onchange: "this.form.requestSubmit()" %>
-      </div>
-      <label for="hs-list-group-item-checkbox-1" class="ms-3.5 block w-full text-sm text-gray-600 dark:text-gray-500">
-        <%= checklist.name %>
-      </label>
-    </div>
+    <label class="<%= checklist.checked? ? 'checked' : '' %>">
+      <%= f.check_box :checked, onchange: "this.form.requestSubmit()", class: "shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" %>
+      <span class="text-sm text-gray-500 ms-3 dark:text-gray-400"><%= checklist.name %></span>
+    </label>
   <% end %>
 <% end %>
