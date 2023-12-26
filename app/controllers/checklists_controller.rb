@@ -35,7 +35,7 @@ class ChecklistsController < ApplicationController
     @room = Room.find(params[:room_id])
     @checklist = @room.checklists.find(params[:id])
     if @checklist.update(checklist_params)
-      flash.now.notice = "チェックリスとを更新しました。"
+      flash.now.notice = "チェックリストを更新しました。"
     else
       render :edit, status: :unprocessable_entity
     end

@@ -12,6 +12,11 @@
 
   <body>
     <%= render 'shared/header' %>
-    <%= yield %>
+    <div class="col my-4">
+      <div id="flash">
+        <%= render "flash" %>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>
