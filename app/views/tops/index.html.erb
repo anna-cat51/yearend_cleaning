@@ -1,12 +1,16 @@
-<div class="bg-white py-6 sm:py-8 lg:py-12">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <div class="mx-auto max-w-lg rounded-lg">
-      <div class="flex flex-col gap-4 p-4 md:p-8">
+<div class=" bg-body-dark py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-lg px-4 md:px-8">
+    <div class="card flex-auto bg-base-100 shadow-xl text-center">
+      <div class="card-body pt-8 pb-8">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">使い方</h1>
+        <p class="mb-8 leading-relaxed">
+        とりあえずよくある間取りの部屋・掃除箇所を用意しています
+        <br>LINEログインしたら、部屋・チェック項目ともに追加できます<br>
+        もしいらん項目があってもチェック入れてくださいね<br>
+        全部チェックできたら、なにかあるかも・・・
+        </p>
         <%= link_to user_line_omniauth_authorize_path, class: 'block mx-auto', method: :post do %>
-          <button class="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-gray-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:text-base">
-            <i class="fab fa-line fa-2x line-green"></i></span>
-            LINEでログインする
-          </button>
+          <%= image_tag 'btn_login_base.png' %>
         <% end %>
       </div>
     </div>
