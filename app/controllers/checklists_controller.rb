@@ -15,7 +15,7 @@ class ChecklistsController < ApplicationController
 
   def create
     @room = Room.find(params[:room_id])
-    @checklist = @room.checklists.build(checklist_params)
+    @checklist = @room.checklists.new(checklist_params.merge(user: current_user))
     if @checklist.save
       flash.now.notice = "チェックリストを追加しました。"
     else

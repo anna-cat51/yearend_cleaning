@@ -27,7 +27,7 @@ class RoomsController < ApplicationController
 
   # POST /rooms
   def create
-    @room = Room.new(room_params)
+    @room = current_user.rooms.new(room_params)
 
     if @room.save
       flash.now.notice = "部屋を登録しました。"

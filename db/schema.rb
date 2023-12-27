@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_27_182047) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_27_190037) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_27_182047) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "checked"
+    t.bigint "user_id"
     t.index ["room_id"], name: "index_checklists_on_room_id"
+    t.index ["user_id"], name: "index_checklists_on_user_id"
   end
 
   create_table "layouts", force: :cascade do |t|
@@ -35,6 +37,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_27_182047) do
     t.datetime "updated_at", null: false
     t.bigint "layout_id"
     t.boolean "is_template"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,5 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_27_182047) do
   end
 
   add_foreign_key "checklists", "rooms", on_delete: :cascade
+  add_foreign_key "checklists", "users"
   add_foreign_key "rooms", "layouts"
+  add_foreign_key "rooms", "users"
 end
