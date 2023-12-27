@@ -1,7 +1,48 @@
-# 間取りデータの作成
-layouts = [
-  Layout.create(name: '1K'),
-  Layout.create(name: '1DK'),
-  Layout.create(name: '1LDK'),
-  Layout.create(name: '2LDK')
-]
+# テンプレートの部屋作成
+toire_rooms = Room.create!(name: "トイレ", is_template: true)
+yokuso_rooms = Room.create!(name: "浴室", is_template: true)
+senmen_rooms = Room.create!(name: "洗面所", is_template: true)
+kittin_rooms = Room.create!(name: "キッチン", is_template: true)
+genkan_rooms = Room.create!(name: "玄関", is_template: true)
+ribingu_rooms = Room.create!(name: "居室", is_template: true)
+
+Checklist.create!(name: "天井・壁", room: toire_rooms)
+Checklist.create!(name: "床", room: toire_rooms)
+Checklist.create!(name: "便器", room: toire_rooms)
+Checklist.create!(name: "換気扇", room: toire_rooms)
+
+Checklist.create!(name: "天井・壁", room: yokuso_rooms)
+Checklist.create!(name: "床", room: yokuso_rooms)
+Checklist.create!(name: "排水口", room: yokuso_rooms)
+Checklist.create!(name: "浴槽", room: yokuso_rooms)
+Checklist.create!(name: "小物類", room: yokuso_rooms)
+Checklist.create!(name: "換気扇", room: yokuso_rooms)
+Checklist.create!(name: "鏡", room: yokuso_rooms)
+
+Checklist.create!(name: "天井・壁", room: senmen_rooms)
+Checklist.create!(name: "床", room: senmen_rooms)
+Checklist.create!(name: "洗面台", room: senmen_rooms)
+Checklist.create!(name: "収納", room: senmen_rooms)
+Checklist.create!(name: "鏡", room: senmen_rooms)
+
+Checklist.create!(name: "天井・壁", room: kittin_rooms)
+Checklist.create!(name: "床", room: kittin_rooms)
+Checklist.create!(name: "換気扇", room: kittin_rooms)
+Checklist.create!(name: "コンロ周り", room: kittin_rooms)
+Checklist.create!(name: "食器棚", room: kittin_rooms)
+Checklist.create!(name: "レンジ", room: kittin_rooms)
+Checklist.create!(name: "シンク", room: kittin_rooms)
+Checklist.create!(name: "食器棚", room: kittin_rooms)
+Checklist.create!(name: "冷蔵庫", room: kittin_rooms)
+
+Checklist.create!(name: "天井・壁", room: genkan_rooms)
+Checklist.create!(name: "床", room: genkan_rooms)
+Checklist.create!(name: "靴入れ", room: genkan_rooms)
+Checklist.create!(name: "玄関タイル", room: genkan_rooms)
+
+Checklist.create!(name: "天井・壁", room: ribingu_rooms)
+Checklist.create!(name: "床", room: ribingu_rooms)
+Checklist.create!(name: "窓", room: ribingu_rooms)
+Checklist.create!(name: "照明", room: ribingu_rooms)
+Checklist.create!(name: "カーテン", room: ribingu_rooms)
+Checklist.create!(name: "エアコン", room: ribingu_rooms)
