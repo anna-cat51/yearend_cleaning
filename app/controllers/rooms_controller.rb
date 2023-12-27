@@ -3,7 +3,11 @@ class RoomsController < ApplicationController
 
   # GET /rooms
   def index
-    @rooms = Room.includes(:checklists).all
+    if user_signed_in?
+      @rooms = current_user.rooms.includes(:checklists)
+    else
+      @rooms = Room.includes(:checklists).all
+    end
   end
 
   # GET /rooms/1
