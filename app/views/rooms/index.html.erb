@@ -1,17 +1,16 @@
-<div class=" bg-body-dark py-6 sm:py-8 lg:py-12">
+<div class="bg-body-dark py-6 sm:py-8 lg:py-12">
   <div class="mx-auto max-w-screen-lg px-4 md:px-8">
-  <div class="pb-4 items-end">
-    <%= link_to new_room_path, data: { turbo_frame: dom_id(Room.new) }, class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" do %>
-      部屋の追加
-    <% end %>
-  </div>
+    <div class="pb-4 items-end">
+      <%= link_to new_room_path, data: { turbo_frame: dom_id(Room.new) }, class: "py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:hover:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" do %>
+        部屋の追加
+      <% end %>
+    </div>
 <!-- 一覧 -->
   <%= turbo_frame_tag Room.new %>
 
-    <div class="hs-accordion-group">
-      <div id="rooms">
-        <%= render @rooms %>
-      </div>
+  <div class="hs-accordion-group">
+    <div id="rooms">
+      <%= render @rooms %>
     </div>
   </div>
 </div>
