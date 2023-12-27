@@ -4,9 +4,11 @@ class RoomsController < ApplicationController
   # GET /rooms
   def index
     if user_signed_in?
-      @rooms = current_user.rooms.includes(:checklists)
+      # 登録ユーザーの場合: 自分が追加した部屋とテンプレートの部屋を表示
+      @rooms = current_user.rooms + Room.where(is_template: true)
     else
-      @rooms = Room.includes(:checklists).all
+      # 未登録ユーザーの場合: テンプレートの部屋のみ表示
+      @rooms = Room.where(is_template: true)
     end
   end
 

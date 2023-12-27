@@ -1,6 +1,14 @@
 class ChecklistsController < ApplicationController
   def index
-    @checklists = Checklist.all
+    def index
+      if user_signed_in?
+        # 登録ユーザーの場合: 自分が追加したチェックリストとテンプレートのチェックリストを表示
+        @checklists = current_user.checklists + Checklist.where(is_template: true)
+      else
+        # 未登録ユーザーの場合: テンプレートのチェックリストのみ表示
+        @checklists = Checklist.where(is_template: true)
+      end
+    end
   end
 
   def new
