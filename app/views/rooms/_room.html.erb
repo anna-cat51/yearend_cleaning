@@ -30,7 +30,7 @@
       <div class="pb-4 px-5">
         <ul class="max-w-sm flex flex-col">
           <%= turbo_frame_tag "room_#{room.id}_checklist_" %>
-          <div id="checklists_room_<%= room.id %>" data-controller="modal">
+          <div id="checklists_room_<%= room.id %>">
             <% room.checklists.each do |checklist| %>
               <%= render 'checklists/checklist', room: room, checklist: checklist %>
             <% end %>
